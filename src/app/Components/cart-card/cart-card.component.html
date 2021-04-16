@@ -1,0 +1,27 @@
+<!-- Card -->
+<mdb-card>
+  <!--Card content-->
+  <mdb-card-body>
+    <!--Title-->
+    <mdb-card-text>
+      Availability: <span class="text-success"> {{ details.Status }}</span>
+    </mdb-card-text>
+    <hr class="my-4" />
+    <!--Text-->
+
+    <mdb-card-title class="title h1">$ {{ details.Price }} </mdb-card-title>
+    <hr class="my-4" />
+    <div class="md-form md-outline">
+      <input type="text" id="form1" class="form-control" mdbInput value="1" />
+      <label for="form1">Quantity</label>
+    </div>
+    <a href="#" id="cool-button">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Add To Cart
+    </a>
+  </mdb-card-body>
+</mdb-card>
+<!-- Card -->

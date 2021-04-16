@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <div class="card-group">
+      <app-card
+        *ngFor="let a of products.data; let index = index"
+        class="col-md-4 pt-2 col-sm-1"
+        [details]="a"
+      ></app-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="container my-2">
+  <div class="row d-flex" style="justify-content: space-between">
+    <div class="col-3">
+      <img src="{{ product.ProductPicUrl }}" />
+    </div>
+    <app-cart-card class="col-4" [details]="product"></app-cart-card>
+  </div>
+  <div class="col-6 mx-2">
+    <h1 class="display-4">{{ product.Name }}</h1>
+    <p class="lead">
+      {{ product.Description }}
+    </p>
+    <hr class="my-4" />
+    <p>
+      It uses utility classes for typography and spacing to space content out
+      within the larger container.
+    </p>
+  </div>
+</div>

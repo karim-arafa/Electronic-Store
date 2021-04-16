@@ -1,0 +1,53 @@
+<mdb-card class="h-100">
+  <!--Card image-->
+  <mdb-card-title class="m-3">
+    <h4>
+      <a
+        (click)="saveProduct()"
+        routerLink="/product/{{ details.ProductId }}"
+        >{{ details.Name }}</a
+      >
+    </h4>
+  </mdb-card-title>
+  <div style="min-height: 50%">
+    <mdb-card-img
+      src="{{ details.ProductPicUrl }}"
+      class="card-img-top"
+      style="object-fit: contain; height: 35%"
+      alt="Card image cap"
+    >
+    </mdb-card-img>
+  </div>
+  <!--Card content-->
+  <mdb-card-body>
+    <!--Title-->
+
+    <!--Text-->
+    <mdb-card-text
+      class="overflow-hidden"
+      style="
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 160px;
+        direction: rtl;
+        font-size: 20px !important;
+        height: 30%;
+      "
+    >
+      {{ details.Description }}
+    </mdb-card-text>
+
+    <div class="d-flex" style="justify-content: space-between">
+      <mdb-badge default="true">Price: {{ details.Price }}</mdb-badge>
+      <mdb-badge default="true">Quantity: {{ details.Quantity }}</mdb-badge>
+      <mdb-badge default="true">
+        <mdb-icon
+          fas
+          icon="cart-arrow-down"
+          (click)="addToCart()"
+          style="cursor: pointer"
+        ></mdb-icon>
+      </mdb-badge>
+    </div>
+  </mdb-card-body>
+</mdb-card>
