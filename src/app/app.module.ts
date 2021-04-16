@@ -9,6 +9,8 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { IndexComponent } from './View/index/index.component';
 import { CardComponent } from './Components/card/card.component';
 import { ProductDetailsComponent } from './View/product-details/product-details.component';
+import { ContactComponent } from './View/contact/contact.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,15 @@ import { ProductDetailsComponent } from './View/product-details/product-details.
     IndexComponent,
     CardComponent,
     ProductDetailsComponent,
+    ContactComponent,
   ],
-  imports: [
-    BrowserModule,
-    MDBBootstrapModule.forRoot(),
-    AppRoutingModule,
-    HttpClientModule,
-  ],
+    imports: [
+        BrowserModule,
+        MDBBootstrapModule.forRoot(),
+        AppRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+    ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,0 +1,50 @@
+<div class="container">
+<br>
+  <h2>Leave us a message</h2>
+  <hr>
+  <h5>If you have any message, you can leave it here and we will contact you as soon as possible</h5>
+  <div class="row" *ngIf="errors?.length">
+    <div class="alert alert-danger" *ngFor="let error of errors">
+      {{ error }}
+    </div>
+  </div>
+  <br>
+
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm)">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>Name</label>
+        <input type="text" class="form-control" formControlName="name" />
+
+        <div class="alert alert-danger p-1 mt-1" *ngIf="contactForm.get('name').dirty && contactForm.get('name').hasError('required')">
+          name is required.
+        </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label>E-mail</label>
+        <input type="text" class="form-control" formControlName="email" />
+        <div class="alert alert-danger p-1 mt-1" *ngIf="contactForm.get('email').dirty && contactForm.get('email').hasError('required')">
+          E-mail is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Subject</label>
+      <input type="text" class="form-control" formControlName="subject" />
+      <div class="alert alert-danger p-1 mt-1" *ngIf="contactForm.get('subject').dirty && contactForm.get('subject').hasError('required')">
+        Subject is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Message</label>
+      <textarea type="text" rows="5" class="form-control" formControlName="message"></textarea>
+    </div>
+
+    <button class="btn" [ngClass]="{'btn-outline-success': contactForm.valid,'btn-outline-default': contactForm.invalid}"
+      type="submit"
+      [disabled]="contactForm.invalid">Send Message</button>
+  </form>
+</div>
