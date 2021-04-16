@@ -11,6 +11,7 @@ import { CardComponent } from './Components/card/card.component';
 import { ProductDetailsComponent } from './View/product-details/product-details.component';
 import { ContactComponent } from './View/contact/contact.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { AboutComponent } from './View/about/about.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     CardComponent,
     ProductDetailsComponent,
     ContactComponent,
+    AboutComponent,
   ],
     imports: [
         BrowserModule,
