@@ -16,7 +16,7 @@
     <tr *ngFor="let a of data">
       <th><img src="{{a['ProductPicUrl']}}" alt="img"> {{a["Name"]}} </th>
       <td> {{a["Price"]}} </td>
-      <td><input type="text" [(ngModel)]="a['RequestedQuantity']"></td>
+      <td><input type="text" [(ngModel)]="a['RequestedQuantity']" (ngModelChange)="ChangeQuantity(a)"></td>
       <td>{{a["totalPerProduct"]}}</td>
     </tr>
     </tbody>
