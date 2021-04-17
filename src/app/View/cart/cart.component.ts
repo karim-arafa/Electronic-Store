@@ -34,14 +34,13 @@ export class CartComponent implements OnInit {
 
   }
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-
   ngOnInit(): void {
 //     console.log(this.data);
   }
 
   // tslint:disable-next-line:typedef
   checkout() {
+    localStorage.clear();
     this.router.navigate(['/']);
   }
 }
