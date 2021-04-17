@@ -4,7 +4,10 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root',
 })
 export class ProductHolderService {
-  constructor() {}
+  constructor() {
+    this.product = JSON.parse(localStorage.getItem('product'));
+  }
+
   product: any = {};
   getProduct(): Observable<any> {
     console.log('i was returned');
@@ -12,6 +15,7 @@ export class ProductHolderService {
   }
   setProduct(Product: any) {
     this.product = Product;
+    localStorage.setItem('product', JSON.stringify(this.product));
     console.log('I was Pushed');
   }
 }
