@@ -9,16 +9,23 @@ import {MatPaginator} from '@angular/material/paginator';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  quantity = 1 ;
-  totalPerProduct: number;
-  allTotal: number;
+  quantity=[] ;
+  totalPerProduct = [];
+  allTotal: number = 0;
   data: object;
 
   constructor() {
     this.data = JSON.parse(localStorage.getItem('dataSource'));
     Object.entries(this.data);
-    this.totalPerProduct = this.quantity * this.data['Price'];
-    // this.allTotal = this.totalPerProduct * 3ddhom;
+    for (let i = 0; i < Object.keys(this.data).length; i++) {
+    this.quantity[i]=1;
+    this.totalPerProduct[i] = this.quantity[i] * this.data[i]['Price'];
+    this.data[i]['RequestedQuantity']=this.quantity[i];
+    this.data[i]['totalPerProduct']=this.totalPerProduct[i];
+     this.allTotal = this.allTotal + this.totalPerProduct[i];
+
+    }
+
   }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ProductHolderService } from '../../product-holder.service';
+import { ShoppingCartService } from '../../shopping-cart.service';
+
 
 @Component({
   selector: 'app-card',
@@ -8,14 +10,18 @@ import { ProductHolderService } from '../../product-holder.service';
 })
 export class CardComponent implements OnInit {
   @Input() details: any;
-  constructor(private productHolder: ProductHolderService) {}
+  @Input() list = [];
+  constructor(private productHolder: ProductHolderService,private shoppingCart: ShoppingCartService) {}
 
   saveProduct(): void {
     this.productHolder.setProduct(this.details);
   }
   ngOnInit(): void {}
   addToCart(): void {
-    console.log(this.details);
-    localStorage.setItem('dataSource', JSON.stringify(this.details));
+    this.shoppingCart.getList().subscribe((res)=>{
+        res.push(this.details);
+        localStorage.setItem('dataSource', JSON.stringify(res));
+
+    })
   }
 }

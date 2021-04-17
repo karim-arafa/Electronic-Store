@@ -11,19 +11,20 @@
       <th scope="col">Total</th>
     </tr>
     </thead>
-    <tbody>
-    <tr>
-      <th><img src="{{data['ProductPicUrl']}}" alt="img"> {{data["Name"]}} </th>
-      <td> {{data["Price"]}} </td>
-      <td><input type="text" [(ngModel)]="quantity"></td>
-      <td>{{totalPerProduct}}</td>
+    <tbody >
+
+    <tr *ngFor="let a of data">
+      <th><img src="{{a['ProductPicUrl']}}" alt="img"> {{a["Name"]}} </th>
+      <td> {{a["Price"]}} </td>
+      <td><input type="text" [(ngModel)]="a['RequestedQuantity']"></td>
+      <td>{{a["totalPerProduct"]}}</td>
     </tr>
     </tbody>
   </table>
   <div class="right">
     <h2>Cart Total</h2>
     <hr>
-    <p>Total <span>$4247</span></p>
+    <p>Total <span>{{allTotal}} $</span></p>
   </div>
 </div>
 
