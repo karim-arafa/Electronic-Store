@@ -6,21 +6,18 @@ import { Component, OnInit,Input } from '@angular/core';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
-  @Input() list = [];
+export class NavbarComponent  {
   numberOfItems : number;
 
   constructor() {
+       let data = JSON.parse(localStorage.getItem('dataSource'));
 
-
- let data = JSON.parse(localStorage.getItem('dataSource'));
-     Object.entries(data);
-     this.numberOfItems=data.length;
-     console.log(this.numberOfItems);
+       if (data){
+        Object.entries(data);
+       this.numberOfItems=data.length;
+       console.log(this.numberOfItems);
+       }else {
+        this.numberOfItems=0;
+       }
    }
-
-  ngOnInit(): void {
-
-  }
-
 }
