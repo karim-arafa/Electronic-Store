@@ -4,6 +4,7 @@ import { ContactComponent } from './View/contact/contact.component';
 import { IndexComponent } from './View/index/index.component';
 import { ProductDetailsComponent } from './View/product-details/product-details.component';
 import {AboutComponent} from './View/about/about.component';
+import {CartComponent} from './View/cart/cart.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'about',
     component: AboutComponent
+  },
+  {
+    path: 'cart',
+    component: CartComponent
   },
 ];
 

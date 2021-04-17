@@ -16,5 +16,6 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {}
   addToCart(): void {
     console.log(this.details);
+    localStorage.setItem('dataSource', JSON.stringify(this.details));
   }
 }

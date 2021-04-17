@@ -13,4 +13,10 @@ export class CartCardComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.details);
   }
+
+  // tslint:disable-next-line:typedef
+  addToCart() {
+    console.log(this.details);
+    localStorage.setItem('dataSource', JSON.stringify(this.details));
+  }
 }
