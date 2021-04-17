@@ -12,6 +12,7 @@ import {Router} from '@angular/router';
 export class CardComponent implements OnInit {
   @Input() details: any;
   @Input() list = [];
+  message = 'this prouduct is out of range';
   constructor(private productHolder: ProductHolderService, private shoppingCart: ShoppingCartService) {}
 
   saveProduct(): void {
@@ -20,9 +21,15 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {}
   addToCart(): void {
     this.shoppingCart.getList().subscribe((res)=>{
+      // tslint:disable-next-line:triple-equals
+      if (this.details['Quantity'] == 0){
+        return false;
+      }else {
         this.details['RequestedQuantity'] = 1;
         res.push(this.details);
         localStorage.setItem('dataSource', JSON.stringify(res));
+        this.details['Quantity'] -= 1;
+      }
     });
   }
 }

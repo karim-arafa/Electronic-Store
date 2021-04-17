@@ -9,16 +9,16 @@
       >
     </h4>
   </mdb-card-title>
-  
+
     <img
       src="{{ details.ProductPicUrl }}"
-    
+
       alt="Card image"
       style="width: 100%;"
     >
-   
-  
- 
+
+
+
   <!--Card content-->
   <mdb-card-body
       class="overflow-hidden"
@@ -29,11 +29,15 @@
         width: 100%;
         direction: rtl;
         font-size: 20px !important;
-        
+
       "
       >
       {{ details.Description }}
-    
+
+    <div class="alert alert-danger" *ngIf="this.details['Quantity'] == 0">
+      {{message}}
+    </div>
+
   </mdb-card-body>
   <mdb-card-footer>
     <div class="d-flex" style="justify-content: space-between">

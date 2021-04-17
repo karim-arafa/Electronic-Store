@@ -15,6 +15,10 @@
       <input type="text" id="form1" class="form-control" mdbInput [(ngModel)]="reqQuantity" />
       <label for="form1">Quantity</label>
     </div>
+    <div class="alert alert-danger" *ngIf="this.reqQuantity > this.details['Quantity']">
+      you cant order more than {{details.Quantity}}
+    </div>
+
     <a (click)="addToCart()" id="cool-button">
       <span></span>
       <span></span>

@@ -5,14 +5,14 @@ input {
 
 .left {
   width: 400px;
-  position: absolute;
-  bottom: 100px;
-  left: 250px;
+  float: left;
+  margin: 20px;
+  padding-bottom: 20px;
 }
 .right{
-  position: absolute;
-  bottom: 100px;
-  right: 250px;
+  float: right;
+  margin: 20px;
+  padding-bottom: 20px;
 }
 
 span{

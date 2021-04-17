@@ -20,6 +20,9 @@ export class CartCardComponent implements OnInit {
   // tslint:disable-next-line:typedef
   addToCart() {
   this.shoppingCart.getList().subscribe((res)=>{
+          if(this.reqQuantity > this.details['Quantity']){
+            this.reqQuantity = this.details['Quantity'];
+          }
           this.details['RequestedQuantity'] = this.reqQuantity;
           Object.entries(this.details);
           res.push(this.details);
