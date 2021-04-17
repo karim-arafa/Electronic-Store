@@ -13,15 +13,24 @@ export class IndexComponent implements OnInit {
     private shoppingCart: ShoppingCartService
   ) {}
 
+
+    totalLength:any;
+    page:number=1;
+
   products: any = [];
 
   ngOnInit(): void {
     this.http
       .get(
-        'https://afternoon-falls-30227.herokuapp.com/api/v1/products?page=2&limit=9'
+        'https://afternoon-falls-30227.herokuapp.com/api/v1/products?page=1&limit=123'
       )
       .subscribe((data) => {
         this.products = data;
+        
+       this.totalLength = data['total_items'];
+      
+       
       });
+      
   }
 }

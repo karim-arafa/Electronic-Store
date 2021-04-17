@@ -16,7 +16,7 @@ import { CartComponent } from './View/cart/cart.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +39,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatTableModule,
     MatPaginatorModule,
     FormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent],
