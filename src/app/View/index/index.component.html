@@ -2,11 +2,20 @@
   <div class="row">
     <div class="card-group">
       <app-card
-        *ngFor="let a of products.data; let index = index"
+        *ngFor="let a of products.data | paginate: { itemsPerPage: 9,
+          currentPage: page ,
+         totalItems:totalLength
+         }; let index = index "
         class="col-md-4 pt-2 col-sm-1"
         [details]="a"
-      ></app-card>
+        
+      >
+    
+    </app-card>
+    
     </div>
+   
   </div>
   <br>
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>
 </div>
