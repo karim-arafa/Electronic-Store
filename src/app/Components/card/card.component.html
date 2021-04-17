@@ -9,34 +9,33 @@
       >
     </h4>
   </mdb-card-title>
-  <div style="min-height: 50%">
-    <mdb-card-img
+  
+    <img
       src="{{ details.ProductPicUrl }}"
-      class="card-img-top"
-      style="object-fit: contain; height: 35%"
-      alt="Card image cap"
+    
+      alt="Card image"
+      style="width: 100%;"
     >
-    </mdb-card-img>
-  </div>
+   
+  
+ 
   <!--Card content-->
-  <mdb-card-body>
-    <!--Title-->
-
-    <!--Text-->
-    <mdb-card-text
+  <mdb-card-body
       class="overflow-hidden"
+      class="text-muted"
       style="
         text-overflow: ellipsis;
         overflow: hidden;
-        width: 160px;
+        width: 100%;
         direction: rtl;
         font-size: 20px !important;
-        height: 30%;
+        
       "
-    >
+      >
       {{ details.Description }}
-    </mdb-card-text>
-
+    
+  </mdb-card-body>
+  <mdb-card-footer>
     <div class="d-flex" style="justify-content: space-between">
       <mdb-badge default="true">Price: {{ details.Price }}</mdb-badge>
       <mdb-badge default="true">Quantity: {{ details.Quantity }}</mdb-badge>
@@ -49,5 +48,5 @@
         ></mdb-icon>
       </mdb-badge>
     </div>
-  </mdb-card-body>
+  </mdb-card-footer>
 </mdb-card>
