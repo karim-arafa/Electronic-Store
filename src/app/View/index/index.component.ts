@@ -26,11 +26,11 @@ export class IndexComponent implements OnInit {
       )
       .subscribe((data) => {
         this.products = data;
-        
+
        this.totalLength = data['total_items'];
-      
-       
+
+
       });
-      
+
   }
 }
