@@ -18,9 +18,8 @@ export class CartComponent implements OnInit {
     this.data = JSON.parse(localStorage.getItem('dataSource'));
     Object.entries(this.data);
     for (let i = 0; i < Object.keys(this.data).length; i++) {
-        this.quantity[i]=1;
-        this.totalPerProduct[i] = this.quantity[i] * this.data[i]['Price'];
-        this.data[i]['RequestedQuantity']=this.quantity[i];
+        this.totalPerProduct[i] = this.data[i]['RequestedQuantity'] * this.data[i]['Price'];
+//         this.data[i]['RequestedQuantity']=this.quantity[i];
         this.data[i]['totalPerProduct']=this.totalPerProduct[i];
         this.allTotal = this.allTotal + this.totalPerProduct[i];
 

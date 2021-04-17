@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ShoppingCartService } from '../../shopping-cart.service';
+
 
 @Component({
   selector: 'app-cart-card',
@@ -7,8 +9,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CartCardComponent implements OnInit {
   @Input() details: any;
-
-  constructor() {}
+  reqQuantity = 1;
+  constructor(private shoppingCart: ShoppingCartService) {}
 
   ngOnInit(): void {
     console.log(this.details);
@@ -16,7 +18,14 @@ export class CartCardComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   addToCart() {
-    console.log(this.details);
-    localStorage.setItem('dataSource', JSON.stringify(this.details));
+
+  this.shoppingCart.getList().subscribe((res)=>{
+          this.details['RequestedQuantity'] = this.reqQuantity;
+          Object.entries(this.details);
+          res.push(this.details);
+          localStorage.setItem('dataSource', JSON.stringify(res));
+
+      })
+
   }
 }

@@ -12,7 +12,7 @@
     <mdb-card-title class="title h1">$ {{ details.Price }} </mdb-card-title>
     <hr class="my-4" />
     <div class="md-form md-outline">
-      <input type="text" id="form1" class="form-control" mdbInput value="1" />
+      <input type="text" id="form1" class="form-control" mdbInput [(ngModel)]="reqQuantity" />
       <label for="form1">Quantity</label>
     </div>
     <a (click)="addToCart()" id="cool-button">
