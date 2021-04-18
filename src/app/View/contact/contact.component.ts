@@ -11,7 +11,7 @@ import {ContactService} from '../../services/contact.service';
 export class ContactComponent implements OnInit {
   errors = [];
   contactForm: FormGroup = this.fb.group({
-    email: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
     message: ['', Validators.required],
     name: ['', Validators.required],
     subject: ['', Validators.required],

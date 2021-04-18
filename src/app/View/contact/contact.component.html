@@ -23,9 +23,12 @@
 
       <div class="form-group col-md-6">
         <label>E-mail</label>
-        <input type="text" class="form-control" formControlName="email" />
+        <input type="email" class="form-control" formControlName="email" />
         <div class="alert alert-danger p-1 mt-1" *ngIf="contactForm.get('email').dirty && contactForm.get('email').hasError('required')">
           E-mail is required.
+        </div>
+        <div class="alert alert-danger p-1 mt-1" *ngIf="contactForm.get('email').hasError('pattern') || contactForm.get('email').hasError('email')">
+          E-mail isn't valid
         </div>
       </div>
     </div>
