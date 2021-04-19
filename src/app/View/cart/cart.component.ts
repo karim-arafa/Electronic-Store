@@ -1,6 +1,4 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {MatTableDataSource} from '@angular/material/table';
-import {MatPaginator} from '@angular/material/paginator';
 import {Router} from '@angular/router';
 
 
@@ -16,17 +14,21 @@ export class CartComponent implements OnInit {
   data: object;
 
   constructor(private router: Router) {
+    
     this.data = JSON.parse(localStorage.getItem('dataSource'));
+    
     Object.entries(this.data);
+    console.log(Object.keys(this.data).length);
     for (let i = 0; i < Object.keys(this.data).length; i++) {
         this.totalPerProduct[i] = this.data[i]['RequestedQuantity'] * this.data[i]['Price'];
-//         this.data[i]['RequestedQuantity']=this.quantity[i];
+
         this.data[i]['totalPerProduct']=this.totalPerProduct[i];
         this.allTotal = this.allTotal + this.totalPerProduct[i];
 
     }
 
   }
+  
   ChangeQuantity(product): void {
     this.allTotal = this.allTotal -  product["totalPerProduct"];
     product["totalPerProduct"]=product['Price']*product['RequestedQuantity'];
@@ -35,10 +37,10 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit(): void {
-//     console.log(this.data);
+
   }
 
-  // tslint:disable-next-line:typedef
+  
   checkout() {
     localStorage.clear();
     this.router.navigate(['/']);

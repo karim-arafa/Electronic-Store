@@ -12,18 +12,9 @@ export class NavbarComponent {
   products: any = [];
 
   constructor(private counter: CartCounterServiceService) {
-    // let data = JSON.parse(localStorage.getItem('dataSource'));
-    // if (data) {
-    //   Object.entries(data);
-    //   this.numberOfItems = data.length;
-    //   console.log(this.numberOfItems);
-    // } else {
-    //   this.numberOfItems = 0;
-    // }
-    console.log('Number is ' + this.numberOfItems);
+  
+    
     this.counter.configObservable.subscribe((value) => {
-      console.log(value);
-
       this.numberOfItems = value;
     });
   }

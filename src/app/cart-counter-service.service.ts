@@ -16,7 +16,7 @@ export class CartCounterServiceService {
   configObservable = new BehaviorSubject<number>(0);
 
   setItems(productDetails): void {
-    console.log('I was pushed');
+    
     this.items.push(productDetails);
     localStorage.setItem('productCount', JSON.stringify(this.items));
     this.configObservable.next(this.items.length);
