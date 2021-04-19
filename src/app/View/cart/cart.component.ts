@@ -15,13 +15,17 @@ export class CartComponent implements OnInit {
   index: number;
 
   constructor(private router: Router) {
+    if (!localStorage.getItem('dataSource')){
+      alert('nothing in the cart yet');
+      this.checkout();
+    }else {
     this.data = JSON.parse(localStorage.getItem('dataSource'));
     Object.entries(this.data);
     for (let i = 0; i < Object.keys(this.data).length; i++) {
         this.totalPerProduct[i] = this.data[i]['RequestedQuantity'] * this.data[i]['Price'];
         this.data[i]['totalPerProduct']=this.totalPerProduct[i];
         this.allTotal = this.allTotal + this.totalPerProduct[i];
-    }
+    }}
   }
 
   ChangeQuantity(product): void {
