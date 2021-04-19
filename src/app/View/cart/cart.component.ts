@@ -44,7 +44,9 @@ export class CartComponent implements OnInit {
   // tslint:disable-next-line:typedef
   checkout() {
     localStorage.clear();
-    this.router.navigate(['/']);
+    this.router.navigate(['/']).then(() => {
+      window.location.reload();
+    });
   }
 
 }

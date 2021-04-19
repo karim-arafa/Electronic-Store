@@ -24,7 +24,6 @@ export class CardComponent implements OnInit {
   }
   ngOnInit(): void {}
   addToCart(): void {
-    this.counter.setItems(this.details);
     this.shoppingCart.getList().subscribe((res) => {
       // tslint:disable-next-line:triple-equals
       if (this.details['Quantity'] == 0) {
@@ -32,8 +31,9 @@ export class CardComponent implements OnInit {
       } else {
         this.details['RequestedQuantity'] = 1;
         res.push(this.details);
-        localStorage.setItem('dataSource', JSON.stringify(res));
         this.details['Quantity'] -= 1;
+        this.counter.setItems(this.details);
+        localStorage.setItem('dataSource', JSON.stringify(res));
       }
     });
   }
