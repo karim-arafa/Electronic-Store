@@ -12,8 +12,7 @@ export class NavbarComponent {
   products: any = [];
 
   constructor(private counter: CartCounterServiceService) {
-  
-    
+
     this.counter.configObservable.subscribe((value) => {
       this.numberOfItems = value;
     });

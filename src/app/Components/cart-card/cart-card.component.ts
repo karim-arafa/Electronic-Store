@@ -17,10 +17,10 @@ export class CartCardComponent implements OnInit {
     console.log(this.details);
   }
 
-  
+
   addToCart() {
   this.shoppingCart.getList().subscribe((res)=>{
-          if(this.reqQuantity > this.details['Quantity']){
+          if (this.reqQuantity > this.details['Quantity']){
             this.reqQuantity = this.details['Quantity'];
           }
           this.details['RequestedQuantity'] = this.reqQuantity;

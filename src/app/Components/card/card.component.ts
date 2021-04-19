@@ -25,7 +25,6 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {}
   addToCart(): void {
     this.counter.setItems(this.details);
-
     this.shoppingCart.getList().subscribe((res) => {
       // tslint:disable-next-line:triple-equals
       if (this.details['Quantity'] == 0) {

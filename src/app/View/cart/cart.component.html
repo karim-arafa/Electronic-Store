@@ -2,6 +2,7 @@
 
 <div class="container">
   <br>
+
   <table class="table">
     <thead>
     <tr>
@@ -16,7 +17,11 @@
     <tr *ngFor="let a of data" >
       <th><img src="{{a['ProductPicUrl']}}" alt="img"> {{a["Name"]}} </th>
       <td> {{a["Price"]}} </td>
-      <td><input type="text" [(ngModel)]="a['RequestedQuantity']" (ngModelChange)="ChangeQuantity(a)"></td>
+      <td><input type="number" [(ngModel)]="a['RequestedQuantity']" (ngModelChange)="ChangeQuantity(a)">
+        <div class="alert alert-danger" *ngIf="index == 1">
+          Quantity field cant exceed {{a['Quantity']}}
+        </div>
+      </td>
       <td>{{a["totalPerProduct"]}}</td>
     </tr>
     </tbody>
